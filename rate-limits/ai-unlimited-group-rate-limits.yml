@@ -1,0 +1,11 @@
+generated: '2026-09-13'
+method: searched
+source: https://www.travl.app/
+limit_count: 0
+note: >-
+  No published rate limits, because no API is published. There is no developer portal, no API
+  reference and no live API host to observe runtime headers on — api.lever.app, the only API
+  host the company's DNS names, answers HTTP 503 "This service has been suspended". Searched
+  and probed 2026-09-13.
+rate_limits: []
+headers: []

@@ -1,0 +1,76 @@
+generated: '2026-09-13'
+method: probed
+source: live GET of the named /.well-known/ + apis.json path list on every host this record knows
+hit_count: 0
+note: >-
+  Zero documents served. Three hosts probed: the corporate domain www.aiug.ai, which is a
+  GoDaddy parking lander answering HTTP 200 with the same 114-byte redirect stub for EVERY
+  path (a catch-all — the negative control returned 200 as well, so no 200 on this host is a
+  hit and no WellKnown/SecurityTxt pointer is emitted); www.travl.app, the company's only live
+  product site, which 404s every path honestly (negative control also 404); and api.lever.app,
+  the Lever App backend, which returns HTTP 503 "This service has been suspended" with the
+  header `x-render-routing: suspend` on every path. Four rows on api.lever.app record a
+  Cloudflare 429 interstitial rather than the origin — our probe was rate-limited, not answered.
+  No pointer is emitted for this artifact: it documents an absence.
+hosts:
+- host: https://www.aiug.ai
+  soft_404_control:
+    path: /.well-known/ai-unlimited-group-negative-control-7f3ab91c.json
+    status: 200
+    bytes: 114
+    result: failed
+    note: >-
+      Catch-all. The host answers 200 with an identical 114-byte parking-redirect stub for a
+      path that cannot exist, so every 200 below is discarded as a non-hit.
+  documents:
+  - {path: /.well-known/security.txt, status: 200, hit: false, file: null, note: catch-all parking stub}
+  - {path: /.well-known/openid-configuration, status: 200, hit: false, file: null, note: catch-all parking stub}
+  - {path: /.well-known/oauth-authorization-server, status: 200, hit: false, file: null, note: catch-all parking stub}
+  - {path: /.well-known/oauth-protected-resource, status: 200, hit: false, file: null, note: catch-all parking stub}
+  - {path: /.well-known/api-catalog, status: 200, hit: false, file: null, note: catch-all parking stub}
+  - {path: /.well-known/ai-plugin.json, status: 200, hit: false, file: null, note: catch-all parking stub}
+  - {path: /.well-known/ucp.json, status: 200, hit: false, file: null, note: catch-all parking stub}
+  - {path: /.well-known/acp.json, status: 200, hit: false, file: null, note: catch-all parking stub}
+  - {path: /.well-known/aauth-resource.json, status: 200, hit: false, file: null, note: catch-all parking stub}
+  - {path: /.well-known/apis.json, status: 200, hit: false, file: null, note: catch-all parking stub}
+  - {path: /apis.json, status: 200, hit: false, file: null, note: catch-all parking stub}
+  - {path: /apis.yml, status: 200, hit: false, file: null, note: catch-all parking stub}
+- host: https://www.travl.app
+  soft_404_control:
+    path: /.well-known/ai-unlimited-group-negative-control-7f3ab91c.json
+    status: 404
+    bytes: 88
+    result: passed
+  documents:
+  - {path: /.well-known/security.txt, status: 404, file: null}
+  - {path: /.well-known/openid-configuration, status: 404, file: null}
+  - {path: /.well-known/oauth-authorization-server, status: 404, file: null}
+  - {path: /.well-known/oauth-protected-resource, status: 404, file: null}
+  - {path: /.well-known/api-catalog, status: 404, file: null}
+  - {path: /.well-known/ai-plugin.json, status: 404, file: null}
+  - {path: /.well-known/ucp.json, status: 404, file: null}
+  - {path: /.well-known/acp.json, status: 404, file: null}
+  - {path: /.well-known/aauth-resource.json, status: 404, file: null}
+  - {path: /.well-known/apis.json, status: 404, file: null}
+  - {path: /apis.json, status: 404, file: null}
+  - {path: /apis.yml, status: 404, file: null}
+- host: https://api.lever.app
+  soft_404_control:
+    path: /.well-known/ai-unlimited-group-negative-control-7f3ab91c.json
+    status: 503
+    bytes: 243
+    result: passed
+    note: 'Origin is suspended; header x-render-routing: suspend, body "This service has been suspended."'
+  documents:
+  - {path: /.well-known/security.txt, status: 503, file: null, note: render service suspended}
+  - {path: /.well-known/openid-configuration, status: 503, file: null, note: render service suspended}
+  - {path: /.well-known/oauth-authorization-server, status: 503, file: null, note: render service suspended}
+  - {path: /.well-known/oauth-protected-resource, status: 503, file: null, note: render service suspended}
+  - {path: /.well-known/api-catalog, status: 503, file: null, note: render service suspended}
+  - {path: /.well-known/ai-plugin.json, status: 503, file: null, note: render service suspended}
+  - {path: /.well-known/ucp.json, status: 429, file: null, note: cloudflare interstitial - our probe was rate-limited, origin not reached}
+  - {path: /.well-known/acp.json, status: 429, file: null, note: cloudflare interstitial - our probe was rate-limited, origin not reached}
+  - {path: /.well-known/aauth-resource.json, status: 429, file: null, note: cloudflare interstitial - our probe was rate-limited, origin not reached}
+  - {path: /.well-known/apis.json, status: 429, file: null, note: cloudflare interstitial - our probe was rate-limited, origin not reached}
+  - {path: /apis.json, status: 503, file: null, note: render service suspended}
+  - {path: /apis.yml, status: 503, file: null, note: render service suspended}

@@ -1,0 +1,35 @@
+# AI Unlimited Group
+
+> AI Unlimited Group, Inc. (OTC: AIUG) is a West Hollywood, California fintech holding company,
+> founded in 2022 as Lever Global Corporation and renamed in July 2024. It markets four
+> consumer-facing, AI-branded platforms: Lever App (student-loan and consumer-debt management),
+> Nest Egg (self-directed investing, through the Nest Egg Securities broker-dealer), Travl.App
+> (travel planning and savings) and Resolve Debt (accounts receivable). All four are end-user
+> products. The company operates no developer program and publishes no API.
+
+## Status of this profile
+
+- No public API: AI Unlimited Group publishes no developer portal, no API reference, and no
+  machine-readable contract (no OpenAPI, Swagger, GraphQL SDL, AsyncAPI, Postman collection,
+  MCP server or A2A agent card was found on any host it controls, probed 2026-09-13).
+- The corporate domain https://www.aiug.ai/ serves a GoDaddy parking lander: every path,
+  including paths that cannot exist, returns the same 114-byte redirect to /lander.
+- The Lever App backend https://api.lever.app/ returns HTTP 503 with the header
+  `x-render-routing: suspend` and the body "This service has been suspended."
+- https://travl.app/ is the only live company-operated web property.
+
+## Company
+
+- [AI Unlimited Group](https://www.aiug.ai/): corporate site (currently a parked domain lander)
+- [Travl.App](https://www.travl.app/): travel planning and savings product, the only live property
+- [How Travl works](https://www.travl.app/how-it-works): consumer product walkthrough
+- [Support](https://www.travl.app/support): Travl.App support and FAQ
+- [Terms and Conditions](https://www.travl.app/legal/terms-and-conditions)
+- [Privacy Policy](https://www.travl.app/legal/privacy-policy)
+- [Savely — Travel Savings Goals](https://apps.apple.com/us/app/savely-travel-savings-goals/id1249735808): iOS app linked from Travl.App
+
+## Artifacts in this profile
+
+- [Domain security probe](https://raw.githubusercontent.com/api-evangelist/ai-unlimited-group/refs/heads/main/security/ai-unlimited-group-domain-security.yml)
+- [Well-known discovery probe](https://raw.githubusercontent.com/api-evangelist/ai-unlimited-group/refs/heads/main/well-known/ai-unlimited-group-well-known.yml)
+- [apis.json profile](https://raw.githubusercontent.com/api-evangelist/ai-unlimited-group/refs/heads/main/apis.yml)

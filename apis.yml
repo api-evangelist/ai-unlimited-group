@@ -1,10 +1,18 @@
 aid: ai-unlimited-group
 name: AI Unlimited Group
-description: 'AI Unlimited Group is a company surfaced via the API Evangelist harvest backlog (source:
-  secondary-market) and added to the network as a stub for full-pipeline profiling.'
+description: 'AI Unlimited Group, Inc. (OTC: AIUG) is a West Hollywood, California fintech
+  holding company founded in 2022 as Lever Global Corporation and renamed in July 2024. It
+  markets four consumer-facing, AI-branded platforms — Lever App (student-loan and consumer-debt
+  management), Nest Egg (self-directed investing, via the Nest Egg Securities broker-dealer),
+  Travl.App (travel planning and savings) and Resolve Debt (accounts receivable). All four are
+  end-user mobile and web products; the company operates no developer program, publishes no API
+  reference, and ships no machine-readable contract. As of September 2026 its corporate domain
+  aiug.ai serves a GoDaddy parking lander and the Lever App backend host api.lever.app returns
+  HTTP 503 with x-render-routing: suspend, leaving travl.app as the only live company property.'
 url: https://raw.githubusercontent.com/api-evangelist/ai-unlimited-group/refs/heads/main/apis.yml
 x-type: company
 x-source: harvest:secondary-market
+x-source-url: https://forgeglobal.com/ai-unlimited-group_stock/
 x-tier: stub
 x-tier-reason: harvest
 specificationVersion: '0.20'
@@ -12,6 +20,14 @@ created: '2026-09-13'
 modified: '2026-09-13'
 tags:
 - Company
+- Artificial Intelligence
+- Fintech
+- Consumer Finance
+- Debt Management
+- Travel
+- Investing
+- Mobile Apps
+position: Producing
 apis: []
 maintainers:
 - FN: Kin Lane
@@ -19,5 +35,39 @@ maintainers:
 - FN: APIs.json
   email: info@apis.io
 common:
+- type: LLMsTxt
+  url: llms/ai-unlimited-group-llms.txt
+- type: DomainSecurity
+  url: security/ai-unlimited-group-domain-security.yml
 - type: Website
-  url: https://forgeglobal.com/ai-unlimited-group_stock/
+  url: https://www.aiug.ai/
+- type: Support
+  url: https://www.travl.app/support
+- type: TermsOfService
+  url: https://www.travl.app/legal/terms-and-conditions
+- type: PrivacyPolicy
+  url: https://www.travl.app/legal/privacy-policy
+x-enrichment:
+  date: '2026-09-13'
+  status: minimal
+  artifacts_added: 5
+  pass: local-v3
+x-coverage:
+  state: none
+  reason: no-developer-program
+  detail: >-
+    AI Unlimited Group ships only end-user consumer apps (Lever, Nest Egg, Travl, Resolve Debt)
+    and has no developer program at all; its corporate domain www.aiug.ai now answers every
+    path — including a control path that cannot exist — with an identical 114-byte GoDaddy
+    parking-lander redirect, and api.lever.app, the only API host its DNS names, returns HTTP
+    503 "This service has been suspended" with the header x-render-routing: suspend.
+  evidence:
+  - url: https://www.aiug.ai/
+    status: 200
+  - url: https://api.lever.app/
+    status: 503
+  - url: https://www.travl.app/openapi.json
+    status: 404
+  - url: https://www.travl.app/.well-known/agent-card.json
+    status: 404
+  checked: '2026-09-13'

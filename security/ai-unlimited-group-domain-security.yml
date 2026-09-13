@@ -1,0 +1,36 @@
+generated: '2026-09-13'
+method: probed
+source: live DNS/TLS/HTTP probes of apis.yml + OpenAPI hosts
+hosts:
+- host: www.aiug.ai
+  https: true
+  tls_version: TLSv1.3
+  cert_expires: Mar  3 17:25:06 2027 GMT
+  hsts: false
+- host: www.travl.app
+  https: true
+  tls_version: TLSv1.3
+  cert_expires: Nov  8 00:02:37 2026 GMT
+  hsts: true
+  hsts_max_age: 31536000
+- host: api.lever.app
+  https: true
+  tls_version: TLSv1.3
+  http_status: 503
+  note: 'Render service suspended (x-render-routing: suspend); host resolves and terminates
+    TLS but serves no application.'
+domains:
+- domain: aiug.ai
+  dnssec: false
+  caa: []
+  spf: true
+  dmarc: false
+- domain: travl.app
+  dnssec: false
+  caa: []
+  spf: true
+  dmarc: false
+x-note: >-
+  www.aiug.ai is a GoDaddy parking lander, not a running application; the TLS/DNS posture
+  recorded for it is the parking host's, not the company's. travl.app is the only live
+  company-operated web property probed.
