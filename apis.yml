@@ -44,6 +44,10 @@ maintainers:
 - FN: APIs.json
   email: info@apis.io
 common:
+- type: Plans
+  url: plans/ai-unlimited-group-plans-pricing.yml
+- type: RateLimits
+  url: rate-limits/ai-unlimited-group-rate-limits.yml
 - type: LLMsTxt
   url: llms/ai-unlimited-group-llms.txt
 - type: DomainSecurity
